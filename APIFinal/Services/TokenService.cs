@@ -1,4 +1,5 @@
 ﻿using APIFinal.DBContext;
+using APIFinal.Models;
 using Dapper;
 using System.Data;
 
@@ -6,7 +7,7 @@ namespace APIFinal.Services
 {
     public interface ITokenService
     {
-        public string ReturnPrToken(string token);
+        public TokenModel ReturnPrToken(string token);
     }
     public class TokenService : ITokenService
     {
@@ -20,22 +21,34 @@ namespace APIFinal.Services
         }
 
 
-        public string ReturnPrToken(string token)
+        public TokenModel ReturnPrToken(string token)
         {
             var parameters = new DynamicParameters();
             parameters.Add("PublicToken", token);
- 
+
+
+            parameters.Add("returnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
 
 
             using (IDbConnection dbConnection = _context.Connection)
             {
                 dbConnection.Open();
-                var result=dbConnection.ExecuteScalar("returnPrToken", parameters, commandType: CommandType.StoredProcedure);
-                string resultAsString = result?.ToString();
-                return resultAsString;
+                var result=dbConnection.QueryFirstOrDefault<TokenModel>("returnPrToken", parameters, commandType: CommandType.StoredProcedure);
+                
+
+
+
+                int returnValue = parameters.Get<int>("returnValue");
+                if (returnValue != 0)
+                {
+
+                    result = new TokenModel();
+                    result.StatusCode = returnValue;
+                }
+            
                 dbConnection.Close();
 
-             
+                 return result;
 
             }
 

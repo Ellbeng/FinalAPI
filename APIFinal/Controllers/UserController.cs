@@ -1,6 +1,8 @@
-﻿using APIFinal.Services;
+﻿using APIFinal.Models;
+using APIFinal.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
+using System.Transactions;
 
 namespace APIFinal.Controllers
 {
@@ -30,7 +32,7 @@ namespace APIFinal.Controllers
 
                 // Assuming there's only one user information returned for the given private token
 
-                if (userInfo.StatusCode != null)
+                if (userInfo.StatusCode != null && userInfo.StatusCode != 0)
                 {
                     return new JsonResult(new { StatusCode = userInfo.StatusCode });
                 }
@@ -48,6 +50,7 @@ namespace APIFinal.Controllers
                         Gender = 1,
                         Currency= "GEL",
                         CurrentBalance = userInfo.Balance
+
                     };
 
                     var result = new
@@ -76,13 +79,16 @@ namespace APIFinal.Controllers
             try
             {
                 var balance = _userService.GetCurrentBalance(privateToken);
+                if (balance.StatusCode != null && balance.StatusCode != 0)
+                {
+                    return new JsonResult(new { StatusCode = balance.StatusCode });
+                }
 
- 
 
                 var result = new
                 {
                     StatusCode = 200,
-                    Data = balance
+                    Data = balance.Balance
                 };
 
                 return new JsonResult(result);
@@ -94,5 +100,121 @@ namespace APIFinal.Controllers
                 return new JsonResult(new { StatusCode = 500 });
             }
         }
+
+
+
+
+
+        [HttpPost("BetPost")]
+        public JsonResult Bet(string PrivateToken, string TransactionId, long Amount, string Currency, int BetTypeId,int GameId, int RoundId)
+        {
+            try
+            {
+                var tranModel = new TransactionModel
+                {
+                    TransactionId = TransactionId,
+                    BetTypeId =BetTypeId,
+                    Amount = Amount,
+                    CreateDate=DateTime.Now,
+                    PaymentType="Deposit",
+                    Status=1,
+                    Currency=Currency,
+                    PrivateToken=PrivateToken,
+                    GameId=GameId,
+                    RoundId=RoundId
+
+
+                    
+                };
+                var userInfo = _userService.Bet(tranModel);
+
+                // Assuming there's only one user information returned for the given private token
+
+                if (userInfo.StatusCode != null && userInfo.StatusCode != 0)
+                {
+                    return new JsonResult(new { StatusCode = userInfo.StatusCode });
+                }
+                else
+                {
+                    var success = new
+                    {
+                        TransactionId=userInfo.Id,
+                        CurrentBalance = userInfo.CurrentBalance
+                    };
+
+                    var result = new
+                    {
+                        StatusCode = 200,
+                        Data = success
+                    };
+
+                    return new JsonResult(result);
+
+
+                }
+            }
+            catch (Exception)
+            {
+                return new JsonResult(new { StatusCode = 500 });
+            }
+        }
+
+
+
+
+        [HttpPost("Win")]
+        public JsonResult Win(string PrivateToken, string TransactionId, long Amount, string Currency, int BetTypeId, int GameId, int RoundId)
+        {
+            try
+            {
+                var tranModel = new TransactionModel
+                {
+                    TransactionId = TransactionId,
+                    BetTypeId = BetTypeId,
+                    Amount = Amount,
+                    CreateDate = DateTime.Now,
+                    PaymentType = "Deposit",
+                    Status = 1,
+                    Currency = Currency,
+                    PrivateToken = PrivateToken,
+                    GameId = GameId,
+                    RoundId = RoundId
+
+
+
+                };
+                var userInfo = _userService.Win(tranModel);
+
+                // Assuming there's only one user information returned for the given private token
+
+                if (userInfo.StatusCode != null && userInfo.StatusCode != 0)
+                {
+                    return new JsonResult(new { StatusCode = userInfo.StatusCode });
+                }
+                else
+                {
+                    var success = new
+                    {
+                        TransactionId = userInfo.Id,
+                        CurrentBalance = userInfo.CurrentBalance
+                    };
+
+                    var result = new
+                    {
+                        StatusCode = 200,
+                        Data = success
+                    };
+
+                    return new JsonResult(result);
+
+
+                }
+            }
+            catch (Exception)
+            {
+                return new JsonResult(new { StatusCode = 500 });
+            }
+        }
+
     }
 }

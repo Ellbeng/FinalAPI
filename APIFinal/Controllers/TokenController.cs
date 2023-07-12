@@ -27,12 +27,16 @@ namespace APIFinal.Controllers
             try
             {
                 
-                string privateToken = _tokenService.ReturnPrToken(publicToken);
+                var tokenModel = _tokenService.ReturnPrToken(publicToken);
+                if (tokenModel.StatusCode != null && tokenModel.StatusCode != 0)
+                {
+                    return new JsonResult(new { StatusCode = tokenModel.StatusCode });
+                }
 
-                if (!string.IsNullOrEmpty(privateToken))
+                if (!string.IsNullOrEmpty(tokenModel.PrivateToken))
                 {
                    
-                    var responseData = new { PrivateToken = privateToken };
+                    var responseData = new { PrivateToken = tokenModel.PrivateToken };
                     return new JsonResult(new { StatusCode = 200, Data = responseData });
                 }
                 else
