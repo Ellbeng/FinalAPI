@@ -14,7 +14,11 @@
         public int Status { get; set; }
         public int GameId { get; set; }
         public int RoundId { get; set; }
-
+        public int WinTypeId { get; set; }
+        public int ChangeWinTypeId { get; set; }
+        public long PreviousAmount { get; set; }
+        public string PreviousTransactionId { get; set; }
+        public string BetTransactionId { get; set; }
         public string TransactionId { get; set; }
     }
 }

@@ -12,6 +12,8 @@ namespace APIFinal.Services
         public BalanceModel GetCurrentBalance(string token);
         public BetReturnModel Bet(TransactionModel transaction);
         public BetReturnModel Win(TransactionModel transaction);
+        public BetReturnModel CancelBet(TransactionModel transaction);
+        public BetReturnModel ChangeWin(TransactionModel transaction);
     }
     public class UserService :IUserService
     {
@@ -130,7 +132,7 @@ namespace APIFinal.Services
         {
             var parameters = new DynamicParameters();
             parameters.Add("PrivateToken", transaction.PrivateToken);
-            parameters.Add("BetTypeId", transaction.BetTypeId);
+            parameters.Add("WinTypeId", transaction.WinTypeId);
             parameters.Add("Amount", transaction.Amount);
             parameters.Add("Currency", transaction.Currency);
             parameters.Add("PaymentType", transaction.PaymentType);
@@ -151,6 +153,96 @@ namespace APIFinal.Services
 
 
                 var result = dbConnection.QueryFirstOrDefault<BetReturnModel>("Win", parameters, commandType: CommandType.StoredProcedure);
+
+
+                dbConnection.Close();
+
+                int returnValue = parameters.Get<int>("returnValue");
+                if (returnValue != 0)
+                {
+
+                    result = new BetReturnModel();
+                    result.StatusCode = returnValue;
+                }
+
+
+                return result;
+            }
+        }
+
+
+
+        public BetReturnModel CancelBet(TransactionModel transaction)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("PrivateToken", transaction.PrivateToken);
+            parameters.Add("BetTypeId", transaction.BetTypeId);
+            parameters.Add("Amount", transaction.Amount);
+            parameters.Add("Currency", transaction.Currency);
+            parameters.Add("PaymentType", transaction.PaymentType);
+            parameters.Add("CreateDate", transaction.CreateDate);
+            parameters.Add("TransactionId", transaction.TransactionId);
+            parameters.Add("Status", transaction.Status);
+            parameters.Add("GameId", transaction.GameId);
+            parameters.Add("RoundId", transaction.RoundId);
+            parameters.Add("BetTransactionId", transaction.BetTransactionId);
+
+            parameters.Add("returnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+
+
+
+
+            using (IDbConnection dbConnection = _context.Connection)
+            {
+                dbConnection.Open();
+
+
+                var result = dbConnection.QueryFirstOrDefault<BetReturnModel>("CancelBet", parameters, commandType: CommandType.StoredProcedure);
+
+
+                dbConnection.Close();
+
+                int returnValue = parameters.Get<int>("returnValue");
+                if (returnValue != 0)
+                {
+
+                    result = new BetReturnModel();
+                    result.StatusCode = returnValue;
+                }
+
+
+                return result;
+            }
+        }
+
+
+
+        public BetReturnModel ChangeWin(TransactionModel transaction)
+        {
+            var parameters = new DynamicParameters();
+            parameters.Add("PrivateToken", transaction.PrivateToken);
+            parameters.Add("ChangeWinTypeId", transaction.ChangeWinTypeId);
+            parameters.Add("Amount", transaction.Amount);
+            parameters.Add("Currency", transaction.Currency);
+            parameters.Add("PaymentType", transaction.PaymentType);
+            parameters.Add("CreateDate", transaction.CreateDate);
+            parameters.Add("TransactionId", transaction.TransactionId);
+            parameters.Add("Status", transaction.Status);
+            parameters.Add("GameId", transaction.GameId);
+            parameters.Add("RoundId", transaction.RoundId);
+            parameters.Add("PreviousTransactionId", transaction.PreviousTransactionId);
+            parameters.Add("PreviousAmount", transaction.PreviousAmount);
+            parameters.Add("returnValue", dbType: DbType.Int32, direction: ParameterDirection.ReturnValue);
+
+
+
+
+            using (IDbConnection dbConnection = _context.Connection)
+            {
+                dbConnection.Open();
+
+
+                var result = dbConnection.QueryFirstOrDefault<BetReturnModel>("ChangeWin", parameters, commandType: CommandType.StoredProcedure);
 
 
                 dbConnection.Close();

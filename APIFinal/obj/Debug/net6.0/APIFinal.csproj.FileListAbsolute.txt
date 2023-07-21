@@ -32,3 +32,42 @@ C:\Users\user\Desktop\APIFinal\APIFinal\obj\Debug\net6.0\refint\APIFinal.dll
 C:\Users\user\Desktop\APIFinal\APIFinal\obj\Debug\net6.0\APIFinal.pdb
 C:\Users\user\Desktop\APIFinal\APIFinal\obj\Debug\net6.0\APIFinal.genruntimeconfig.cache
 C:\Users\user\Desktop\APIFinal\APIFinal\obj\Debug\net6.0\ref\APIFinal.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\appsettings.Development.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\appsettings.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\APIFinal.exe
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\APIFinal.deps.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\APIFinal.runtimeconfig.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\APIFinal.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\APIFinal.pdb
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\Dapper.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\Microsoft.OpenApi.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.csproj.AssemblyReference.cache
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.AssemblyInfoInputs.cache
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.AssemblyInfo.cs
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.csproj.CoreCompileInputs.cache
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets\msbuild.APIFinal.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets\msbuild.build.APIFinal.props
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.APIFinal.props
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.APIFinal.props
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets.pack.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets.build.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\staticwebassets.development.json
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\scopedcss\bundle\APIFinal.styles.css
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.csproj.CopyComplete
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\refint\APIFinal.dll
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.pdb
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\APIFinal.genruntimeconfig.cache
+C:\Users\SURFACE LAPTOP 3\Desktop\Elene_Bet\FinalAPI\APIFinal\obj\Debug\net6.0\ref\APIFinal.dll

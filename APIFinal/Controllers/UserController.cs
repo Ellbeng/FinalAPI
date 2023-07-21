@@ -163,17 +163,17 @@ namespace APIFinal.Controllers
 
 
         [HttpPost("Win")]
-        public JsonResult Win(string PrivateToken, string TransactionId, long Amount, string Currency, int BetTypeId, int GameId, int RoundId)
+        public JsonResult Win(string PrivateToken, string TransactionId, long Amount, string Currency, int WinTypeId, int GameId, int RoundId)
         {
             try
             {
                 var tranModel = new TransactionModel
                 {
                     TransactionId = TransactionId,
-                    BetTypeId = BetTypeId,
+                    WinTypeId = WinTypeId,
                     Amount = Amount,
                     CreateDate = DateTime.Now,
-                    PaymentType = "Deposit",
+                    PaymentType = "Withdraw",
                     Status = 1,
                     Currency = Currency,
                     PrivateToken = PrivateToken,
@@ -215,6 +215,124 @@ namespace APIFinal.Controllers
                 return new JsonResult(new { StatusCode = 500 });
             }
         }
+
+
+
+
+        [HttpPost("CancelBet")]
+        public JsonResult CancelBet(string PrivateToken, string TransactionId, long Amount, string Currency, int BetTypeId, int GameId, int RoundId,string BetTransactionId)
+        {
+            try
+            {
+                var tranModel = new TransactionModel
+                {
+                    TransactionId = TransactionId,
+                    BetTypeId = BetTypeId,
+                    Amount = Amount,
+                    CreateDate = DateTime.Now,
+                    PaymentType = "Deposit",
+                    Status = 1,
+                    Currency = Currency,
+                    PrivateToken = PrivateToken,
+                    GameId = GameId,
+                    RoundId = RoundId,
+                    BetTransactionId = BetTransactionId
+
+
+
+                };
+                var userInfo = _userService.CancelBet(tranModel);
+
+                // Assuming there's only one user information returned for the given private token
+
+                if (userInfo.StatusCode != null && userInfo.StatusCode != 0)
+                {
+                    return new JsonResult(new { StatusCode = userInfo.StatusCode });
+                }
+                else
+                {
+                    var success = new
+                    {
+                        TransactionId = userInfo.Id,
+                        CurrentBalance = userInfo.CurrentBalance
+                    };
+
+                    var result = new
+                    {
+                        StatusCode = 200,
+                        Data = success
+                    };
+
+                    return new JsonResult(result);
+
+
+                }
+            }
+            catch (Exception)
+            {
+                return new JsonResult(new { StatusCode = 500 });
+            }
+        }
+
+
+
+
+        [HttpPost("ChangeWin")]
+        public JsonResult ChangeWin(string PrivateToken, string TransactionId, long Amount, long PreviousAmount, string Currency, int ChangeWinTypeId, int GameId, int RoundId, string PreviousTransactionId)
+        {
+            try
+            {
+                var tranModel = new TransactionModel
+                {
+                    TransactionId = TransactionId,
+                    ChangeWinTypeId = ChangeWinTypeId,
+                    Amount = Amount,
+                    PreviousAmount = PreviousAmount,
+                    CreateDate = DateTime.Now,
+                    PaymentType = "Withdraw",
+                    Status = 1,
+                    Currency = Currency,
+                    PrivateToken = PrivateToken,
+                    GameId = GameId,
+                    RoundId = RoundId,
+                    PreviousTransactionId = PreviousTransactionId
+
+
+
+                };
+                var userInfo = _userService.ChangeWin(tranModel);
+
+                // Assuming there's only one user information returned for the given private token
+
+                if (userInfo.StatusCode != null && userInfo.StatusCode != 0)
+                {
+                    return new JsonResult(new { StatusCode = userInfo.StatusCode });
+                }
+                else
+                {
+                    var success = new
+                    {
+                        TransactionId = userInfo.Id,
+                        CurrentBalance = userInfo.CurrentBalance
+                    };
+
+                    var result = new
+                    {
+                        StatusCode = 200,
+                        Data = success
+                    };
+
+                    return new JsonResult(result);
+
+
+                }
+            }
+            catch (Exception)
+            {
+                return new JsonResult(new { StatusCode = 500 });
+            }
+        }
+
 
     }
 }
